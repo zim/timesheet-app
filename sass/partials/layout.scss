@@ -1,0 +1,547 @@
+//Susy Setup
+$total-columns          : 12;             // a 12-column grid
+$column-width           : 4em;            // each column is 4em wide
+$gutter-width           : 1em;            // 1em gutters between columns
+$grid-padding           : $gutter-width*2;  // grid-padding equal to gutters
+$show-grid-backgrounds  : true;
+$border-box-sizing      : true;
+
+//Options
+
+//$container-style        : fluid; : static;
+//@include prefix(1,12); add a column
+
+$small                  : 30em;
+$medium                 : 47em;
+$large                  : 75em;
+
+//@include border-box-sizing;
+
+
+
+div[class^="col-"], div[class*="col-"]{
+  width:100%;
+}
+// Content -------------------------------------
+
+
+.span-start-time{
+  //display:block;
+}
+
+.span-finish-time, .span-start-time, .span-duration{
+  display:block;
+  font-size:70%;
+
+  span{
+    font-family: Gotham-Bold;
+  }
+}
+
+
+.layout {
+  // NEED THIS TO ENABLE SUSY GRID TO WORK
+  @include container;
+  
+  background-color: #ccc;
+  
+  //max-width:54em;
+  //min-width:54em;
+  
+  // Main -------------------------------------
+  div[class^="col-"], div[class*="col-"]{
+      outline:10px solid red;
+      //background-color:#ccc;
+      position:relative;
+      display:inline-block;
+      margin-bottom:10px;
+      padding:0;
+      
+      button {
+            background-color: #ccc;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius:6px;
+            color: #000;
+            font-family: 'Oswald';
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            border:none;
+            font-family: Gotham-Book;
+        }
+      
+      //BREAKPOINTS
+      @include at-breakpoint($small) {
+        outline:1px solid #666;
+      }
+      @include at-breakpoint($medium) {
+        outline:1px solid white;
+      }
+  }// end common col- styles
+  
+  // col-6 common styles
+  div[class^="col-md-6-"], div[class*="col-md-6-"]{
+    
+       //BREAKPOINTS
+        @include at-breakpoint($small) {
+          //@include span-columns(6,12);
+        }
+        @include at-breakpoint($medium) {
+          
+        }
+    }// col-6 common styles
+    
+    .col-md-6 {
+        @include at-breakpoint($small) {
+          @include span-columns(6,12);
+          outline:0px solid green;
+          
+          &.push3{
+            background-color:green;
+            @include span-columns(6,12);
+            @include push(3);
+          }
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(6,12);
+          outline:0px solid green;
+        }   
+    } //col-md-6-2
+    
+    .col-md-6-end {
+        @include at-breakpoint($small) {
+          @include span-columns(6 omega,12);
+          outline:0px solid green;
+          background-color:yellow;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(6 omega,12);
+          outline:0px solid green;
+        }
+    } //col-md-6-2
+    
+  // col-4 common styles
+  div[class^="col-md-4-"], div[class*="col-md-4-"]{
+    
+       //BREAKPOINTS
+        @include at-breakpoint($small) {
+          //@include span-columns(6,12);
+        }
+        @include at-breakpoint($medium) {
+          
+        }
+    }// col-4 common styles
+    
+    .col-md-4 {
+        @include at-breakpoint($small) {
+          @include span-columns(4,12);
+          outline:0px solid green;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(4,12);
+          outline:0px solid green;
+        }
+    } //col-md-6-2
+    .col-md-4-end {
+        @include at-breakpoint($small) {
+          @include span-columns(4 omega,12);
+          outline:0px solid green;
+          //background-color:yellow;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(4 omega,12);
+          outline:0px solid green;
+        }
+    } //col-md-4-end
+    
+  // col-3 common styles
+  div[class^="col-md-3-"], div[class*="col-md-3-"]{
+    
+       //BREAKPOINTS
+        @include at-breakpoint($small) {
+          //@include span-columns(6,12);
+        }
+        @include at-breakpoint($medium) {
+          
+        }
+    }// col-4 common styles
+    
+    .col-md-3 {
+        @include at-breakpoint($small) {
+          @include span-columns(3,12);
+          outline:0px solid green;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(3,12);
+          outline:0px solid green;
+        }
+    } //col-md-6-2
+    .col-md-3-end {
+        @include at-breakpoint($small) {
+          @include span-columns(3 omega,12);
+          outline:0px solid green;
+          background-color:green;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(3 omega,12);
+          outline:0px solid green;
+        }
+    } //col-md-3-end
+    
+  // col-2 common styles
+  div[class^="col-md-2-"], div[class*="col-md-2-"]{
+    
+       //BREAKPOINTS
+        @include at-breakpoint($small) {
+          //@include span-columns(6,12);
+        }
+        @include at-breakpoint($medium) {
+          
+        }
+    }// col-4 common styles
+    
+    .col-md-2 {
+        @include at-breakpoint($small) {
+          @include span-columns(2,12);
+          outline:0px solid green;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(2,12);
+          outline:0px solid green;
+        }
+    } //col-md-6-2
+    .col-md-2-end {
+        @include at-breakpoint($small) {
+          @include span-columns(2 omega,12);
+          outline:0px solid green;
+          background-color:yellow;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(2 omega,12);
+          outline:0px solid green;
+        }
+    } //col-md-2-end
+    
+  // col-2 common styles
+  div[class^="col-md-1-"], div[class*="col-md-1-"]{
+    
+       //BREAKPOINTS
+        @include at-breakpoint($small) {
+          //@include span-columns(6,12);
+        }
+        @include at-breakpoint($medium) {
+          
+        }
+    }// col-4 common styles
+    
+    .col-md-1 {
+        @include at-breakpoint($small) {
+          @include span-columns(1,12);
+          outline:0px solid green;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(1,12);
+          outline:0px solid green;
+        }
+    } //col-md-6-2
+    .col-md-1-end {
+        @include at-breakpoint($small) {
+          @include span-columns(1 omega,12);
+          outline:0px solid green;
+          background-color:yellow;
+        }
+        @include at-breakpoint($medium) {
+          @include span-columns(1 omega,12);
+          outline:0px solid green;
+        }
+    } //col-md-2-end
+
+    // PUSH STYLES
+    .push3{
+      
+     
+      
+      @include at-breakpoint($small) {
+          
+        }
+      @include at-breakpoint($medium) {
+       
+      }
+      
+    }
+  
+}// end .layout {
+
+.row{
+  background-color:yellow;
+ 
+  &.offset{
+    background-color:black;
+    outline:0px solid red;
+    .layout {
+      // NEED THIS TO ENABLE SUSY GRID TO WORK
+      @include container;
+      outline:0px solid red;
+      .col-md-6 {
+          @include at-breakpoint($small) {
+            //@include push(3);
+            //@include span-columns(4,12);
+            @include push(1);
+            outline:0px solid green;
+            background-color:green;
+          }
+          @include at-breakpoint($medium) {
+            @include span-columns(6,12);
+            outline:0px solid green;
+          }   
+      } //col-md-6-2
+      
+    }// end .layout
+    
+  }// end .offset
+  &.row-logo{
+    
+    .layout {
+      // NEED THIS TO ENABLE SUSY GRID TO WORK
+      @include container;
+      outline:0px solid red;
+      .col-md-12 {
+        
+          // img{
+            // width:14%;
+          // }
+          
+          .total,.title{
+            text-align: center;
+            position: relative;
+            color: #000;
+            display: inline-block;
+            font-size: 3em;
+            margin: 0px;
+            padding: 0px;
+          }
+          .title{
+            margin-right:1em;
+          }
+        
+          @include at-breakpoint($small) {
+           
+          }
+          @include at-breakpoint($medium) {
+          }   
+      } //col-md-6-2
+      
+    }// end .layout
+   }//end of row=logo
+   
+  &.row-add-item{
+    .layout {
+      // NEED THIS TO ENABLE SUSY GRID TO WORK
+      @include container;
+      outline:0px solid red;
+      
+      #form_add_item{
+        display:none;
+
+        label{
+          outline:0px solid red;
+          width:80px;
+        }
+        
+        input{
+          color:#000000;
+        }
+      }
+      
+      div[class^="col-"], div[class*="col-"]{
+        
+          @include at-breakpoint($small) {
+           
+          }
+          @include at-breakpoint($medium) {
+          }
+      }
+    }// end .layout
+   }//end row-add-item
+  &.row-nav{
+    .layout {
+      // NEED THIS TO ENABLE SUSY GRID TO WORK
+      @include container;
+      outline:0px solid red;
+      
+      div[class^="col-"], div[class*="col-"]{
+        
+        background-color: #222;
+        
+          @include at-breakpoint($small) {
+           
+          }
+          @include at-breakpoint($medium) {
+          }
+      }
+    }// end .layout
+   }//end of row=logo
+  &.row-headings{
+    
+    .layout {
+      // NEED THIS TO ENABLE SUSY GRID TO WORK
+      @include container;
+      outline:0px solid red;
+      
+      div[class^="col-"], div[class*="col-"]{
+        
+        background-color: #222;
+        
+        p{
+          text-transform:uppercase;
+          font-size:2em;
+        }
+        
+          @include at-breakpoint($small) {
+           
+          }
+          @include at-breakpoint($medium) {
+          }
+      }
+      
+    }// end .layout
+   }//end of row-headings
+  &.budget_wrapper{
+    
+    .layout {
+      // NEED THIS TO ENABLE SUSY GRID TO WORK
+      @include container;
+      outline:0px solid red;
+      
+      div[class^="col-"], div[class*="col-"]{
+        
+        background-color: #222;
+        
+        p{
+          text-transform:uppercase;
+          font-size:2em;
+        }
+        
+          @include at-breakpoint($small) {
+           
+          }
+          @include at-breakpoint($medium) {
+          }
+      }
+      
+      &.job_wrap{
+          outline: 1px solid red;
+          position:relative;
+          display:inline-block;
+           display: table;
+           width: 100%;
+          
+          div.table {border: 1px solid black; display: table; }
+          div.tr {border: 1px solid black; display: table-row; }
+          div.td {border: 1px solid black; display: table-cell; }
+          
+          span{
+            outline: 1px solid green;
+            position:relative;
+            display:inline-block;
+            display: table-cell;
+            padding: .3rem;
+            color: #000;
+            width: 20%;
+            
+            &.span-name{
+              // width:70%;
+            }
+          }
+          
+          &.debt_green{
+            //background-color: green;
+            
+            div[class^="col-"], div[class*="col-"]{
+        
+              outline: 1px solid green;
+              
+              .green_tick{
+                background-image: url('../img/green_tick.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                width:10%;
+                height: 100%;
+                position:absolute;
+                top:0px;
+                right:0px;   
+              }
+              
+              
+                @include at-breakpoint($small) {
+                 
+                }
+                @include at-breakpoint($medium) {
+                }
+            }
+            
+          }
+          &.debt_red{
+            //background-color: red;
+            
+            div[class^="col-"], div[class*="col-"]{
+        
+              outline: 1px solid red;
+              
+              
+                @include at-breakpoint($small) {
+                 
+                }
+                @include at-breakpoint($medium) {
+                }
+            }
+            
+          }// end debt_red
+          
+          button {
+            background-color: #ccc;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            border-radius:6px;
+            color: #000;
+            font-family: 'Oswald';
+            font-size: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            border:none;
+            font-family: Gotham-Book;
+        }
+        
+        input[type="text"] {
+            color:#000;
+            margin: 0 0 6px 0;
+        }
+        
+        #form_edit_item{
+          display: inline-block;
+          outline: 1px solid grey;
+          width: 100%;
+          padding: 1em;
+        }
+        
+        
+          
+      }// end job_wrap
+      
+    }// end .layout
+   }//end of row-headings
+   
+
+}
+
+// different row -------------------------------------
+// .layout {
+  // // NEED THIS TO ENABLE SUSY GRID TO WORK
+  // @include container;
+// 
+// }
+
+body{
+  outline:0px solid red;
+}

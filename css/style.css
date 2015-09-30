@@ -1,0 +1,752 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+/*
+ * @font-face
+ */
+@font-face {
+  font-family: "Nobel-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Nobel-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Nobel-Bold.woff") format("woff"), url("../fonts/Nobel-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TradeGothicLTStd-Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Nobel-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Nobel-Bold.woff") format("woff"), url("../fonts/Nobel-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: TradeGothicLTStd-Light;
+  src: url("../fonts/TradeGothicLTStd-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: TradeGothicLTStd-Bold;
+  src: url("../fonts/TradeGothicLTStd-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Gotham-Book;
+  src: url("../fonts/Gotham-Book.otf") format("opentype");
+}
+@font-face {
+  font-family: Gotham-Bold;
+  src: url("../fonts/Gotham-Bold.otf") format("opentype");
+}
+/* line 29, ../sass/partials/typography.scss */
+p {
+  font-size: .9em;
+  line-height: 1.5em;
+}
+
+/* line 34, ../sass/partials/typography.scss */
+a {
+  color: #757575;
+}
+
+/* line 37, ../sass/partials/typography.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 41, ../sass/partials/typography.scss */
+h2 {
+  margin-top: 0px;
+  font-family: Gotham-Book;
+  font-size: 1.5em;
+  margin-bottom: 4px;
+}
+
+/* line 8, ../sass/partials/custom.scss */
+body {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  width: 100%;
+  font-family: Gotham-Book;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 23, ../sass/partials/custom.scss */
+.iconWrapElement button {
+  margin: 0px 8px 0px 0px;
+}
+/* line 27, ../sass/partials/custom.scss */
+.iconWrapElement .btn-active-on {
+  background-image: url("../img/green-tick1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 23px;
+}
+/* line 35, ../sass/partials/custom.scss */
+.iconWrapElement .btn-active-off {
+  background-image: url("../img/red-tick1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30px;
+  height: 23px;
+}
+/* line 43, ../sass/partials/custom.scss */
+.iconWrapElement .btn-delete {
+  background-image: url("../img/icon-delete1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}
+/* line 50, ../sass/partials/custom.scss */
+.iconWrapElement .btn-edit {
+  background-image: url("../img/icon-edit2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 20px;
+  height: 26px;
+}
+
+/* line 73, ../sass/partials/custom.scss */
+#timesheet_holder .job_wrap.job-inactive div[class^="col-"], #timesheet_holder .job_wrap.job-inactive div[class*="col-"] {
+  outline: 1px solid red;
+}
+/* line 82, ../sass/partials/custom.scss */
+#timesheet_holder .job_wrap.job-active div[class^="col-"], #timesheet_holder .job_wrap.job-active div[class*="col-"] {
+  outline: 1px solid green;
+}
+
+/* this CSS is not part of the widget, it is here just as an example of the demo page styling.... Don't copy this one, roll your own. One
+ * of the key things about the widget is that it allows you to do your own styling!
+ */
+/* line 100, ../sass/partials/custom.scss */
+#editor {
+  max-height: 250px;
+  height: 250px;
+  background-color: white;
+  border-collapse: separate;
+  border: 1px solid #cccccc;
+  padding: 4px;
+  box-sizing: content-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.07451) 0px 1px 1px 0px inset;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  overflow: scroll;
+  outline: none;
+}
+
+/* line 115, ../sass/partials/custom.scss */
+#voiceBtn {
+  width: 20px;
+  color: transparent;
+  background-color: transparent;
+  transform: scale(2, 2);
+  -webkit-transform: scale(2, 2);
+  -moz-transform: scale(2, 2);
+  border: transparent;
+  cursor: pointer;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+/* line 128, ../sass/partials/custom.scss */
+div[data-role="editor-toolbar"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 135, ../sass/partials/custom.scss */
+.dropdown-menu a {
+  cursor: pointer;
+}
+
+/* line 22, ../sass/partials/layout.scss */
+div[class^="col-"], div[class*="col-"] {
+  width: 100%;
+}
+
+/* line 32, ../sass/partials/layout.scss */
+.span-finish-time, .span-start-time, .span-duration {
+  display: block;
+  font-size: 70%;
+}
+/* line 36, ../sass/partials/layout.scss */
+.span-finish-time span, .span-start-time span, .span-duration span {
+  font-family: Gotham-Bold;
+}
+
+/* line 42, ../sass/partials/layout.scss */
+.layout {
+  *zoom: 1;
+  max-width: 63em;
+  _width: 63em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ccc;
+}
+/* line 38, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 52, ../sass/partials/layout.scss */
+.layout div[class^="col-"], .layout div[class*="col-"] {
+  outline: 10px solid red;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 0;
+}
+/* line 60, ../sass/partials/layout.scss */
+.layout div[class^="col-"] button, .layout div[class*="col-"] button {
+  background-color: #ccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 6px;
+  color: #000;
+  font-family: 'Oswald';
+  font-size: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: Gotham-Book;
+}
+@media (min-width: 30em) {
+  /* line 52, ../sass/partials/layout.scss */
+  .layout div[class^="col-"], .layout div[class*="col-"] {
+    outline: 1px solid #666;
+  }
+}
+@media (min-width: 47em) {
+  /* line 52, ../sass/partials/layout.scss */
+  .layout div[class^="col-"], .layout div[class*="col-"] {
+    outline: 1px solid white;
+  }
+}
+@media (min-width: 30em) {
+  /* line 95, ../sass/partials/layout.scss */
+  .layout .col-md-6 {
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+  /* line 100, ../sass/partials/layout.scss */
+  .layout .col-md-6.push3 {
+    background-color: green;
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    margin-left: 44.11765%;
+  }
+}
+@media (min-width: 47em) {
+  /* line 95, ../sass/partials/layout.scss */
+  .layout .col-md-6 {
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 112, ../sass/partials/layout.scss */
+  .layout .col-md-6-end {
+    width: 49.15254%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+    background-color: yellow;
+  }
+}
+@media (min-width: 47em) {
+  /* line 112, ../sass/partials/layout.scss */
+  .layout .col-md-6-end {
+    width: 49.15254%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 136, ../sass/partials/layout.scss */
+  .layout .col-md-4 {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 47em) {
+  /* line 136, ../sass/partials/layout.scss */
+  .layout .col-md-4 {
+    width: 32.20339%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 146, ../sass/partials/layout.scss */
+  .layout .col-md-4-end {
+    width: 32.20339%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 47em) {
+  /* line 146, ../sass/partials/layout.scss */
+  .layout .col-md-4-end {
+    width: 32.20339%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 170, ../sass/partials/layout.scss */
+  .layout .col-md-3 {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 47em) {
+  /* line 170, ../sass/partials/layout.scss */
+  .layout .col-md-3 {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 180, ../sass/partials/layout.scss */
+  .layout .col-md-3-end {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+    background-color: green;
+  }
+}
+@media (min-width: 47em) {
+  /* line 180, ../sass/partials/layout.scss */
+  .layout .col-md-3-end {
+    width: 23.72881%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 204, ../sass/partials/layout.scss */
+  .layout .col-md-2 {
+    width: 15.25424%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 47em) {
+  /* line 204, ../sass/partials/layout.scss */
+  .layout .col-md-2 {
+    width: 15.25424%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 214, ../sass/partials/layout.scss */
+  .layout .col-md-2-end {
+    width: 15.25424%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+    background-color: yellow;
+  }
+}
+@media (min-width: 47em) {
+  /* line 214, ../sass/partials/layout.scss */
+  .layout .col-md-2-end {
+    width: 15.25424%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 238, ../sass/partials/layout.scss */
+  .layout .col-md-1 {
+    width: 6.77966%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 47em) {
+  /* line 238, ../sass/partials/layout.scss */
+  .layout .col-md-1 {
+    width: 6.77966%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+@media (min-width: 30em) {
+  /* line 248, ../sass/partials/layout.scss */
+  .layout .col-md-1-end {
+    width: 6.77966%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+    background-color: yellow;
+  }
+}
+@media (min-width: 47em) {
+  /* line 248, ../sass/partials/layout.scss */
+  .layout .col-md-1-end {
+    width: 6.77966%;
+    float: right;
+    margin-right: 0;
+    outline: 0px solid green;
+  }
+}
+
+/* line 276, ../sass/partials/layout.scss */
+.row {
+  background-color: yellow;
+}
+/* line 279, ../sass/partials/layout.scss */
+.row.offset {
+  background-color: black;
+  outline: 0px solid red;
+}
+/* line 282, ../sass/partials/layout.scss */
+.row.offset .layout {
+  *zoom: 1;
+  max-width: 63em;
+  _width: 63em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 0px solid red;
+}
+/* line 38, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.row.offset .layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media (min-width: 30em) {
+  /* line 286, ../sass/partials/layout.scss */
+  .row.offset .layout .col-md-6 {
+    margin-left: 14.70588%;
+    outline: 0px solid green;
+    background-color: green;
+  }
+}
+@media (min-width: 47em) {
+  /* line 286, ../sass/partials/layout.scss */
+  .row.offset .layout .col-md-6 {
+    width: 49.15254%;
+    float: left;
+    margin-right: 1.69492%;
+    outline: 0px solid green;
+  }
+}
+/* line 305, ../sass/partials/layout.scss */
+.row.row-logo .layout {
+  *zoom: 1;
+  max-width: 63em;
+  _width: 63em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 0px solid red;
+}
+/* line 38, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.row.row-logo .layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 315, ../sass/partials/layout.scss */
+.row.row-logo .layout .col-md-12 .total, .row.row-logo .layout .col-md-12 .title {
+  text-align: center;
+  position: relative;
+  color: #000;
+  display: inline-block;
+  font-size: 3em;
+  margin: 0px;
+  padding: 0px;
+}
+/* line 324, ../sass/partials/layout.scss */
+.row.row-logo .layout .col-md-12 .title {
+  margin-right: 1em;
+}
+/* line 339, ../sass/partials/layout.scss */
+.row.row-add-item .layout {
+  *zoom: 1;
+  max-width: 63em;
+  _width: 63em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 0px solid red;
+}
+/* line 38, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.row.row-add-item .layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 344, ../sass/partials/layout.scss */
+.row.row-add-item .layout #form_add_item {
+  display: none;
+}
+/* line 347, ../sass/partials/layout.scss */
+.row.row-add-item .layout #form_add_item label {
+  outline: 0px solid red;
+  width: 80px;
+}
+/* line 352, ../sass/partials/layout.scss */
+.row.row-add-item .layout #form_add_item input {
+  color: #000000;
+}
+/* line 368, ../sass/partials/layout.scss */
+.row.row-nav .layout {
+  *zoom: 1;
+  max-width: 63em;
+  _width: 63em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 0px solid red;
+}
+/* line 38, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.row.row-nav .layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 373, ../sass/partials/layout.scss */
+.row.row-nav .layout div[class^="col-"], .row.row-nav .layout div[class*="col-"] {
+  background-color: #222;
+}
+/* line 387, ../sass/partials/layout.scss */
+.row.row-headings .layout {
+  *zoom: 1;
+  max-width: 63em;
+  _width: 63em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 0px solid red;
+}
+/* line 38, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.row.row-headings .layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 392, ../sass/partials/layout.scss */
+.row.row-headings .layout div[class^="col-"], .row.row-headings .layout div[class*="col-"] {
+  background-color: #222;
+}
+/* line 396, ../sass/partials/layout.scss */
+.row.row-headings .layout div[class^="col-"] p, .row.row-headings .layout div[class*="col-"] p {
+  text-transform: uppercase;
+  font-size: 2em;
+}
+/* line 412, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout {
+  *zoom: 1;
+  max-width: 63em;
+  _width: 63em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  outline: 0px solid red;
+}
+/* line 38, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.row.budget_wrapper .layout:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 417, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout div[class^="col-"], .row.budget_wrapper .layout div[class*="col-"] {
+  background-color: #222;
+}
+/* line 421, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout div[class^="col-"] p, .row.budget_wrapper .layout div[class*="col-"] p {
+  text-transform: uppercase;
+  font-size: 2em;
+}
+/* line 433, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap {
+  outline: 1px solid red;
+  position: relative;
+  display: inline-block;
+  display: table;
+  width: 100%;
+}
+/* line 440, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap div.table {
+  border: 1px solid black;
+  display: table;
+}
+/* line 441, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap div.tr {
+  border: 1px solid black;
+  display: table-row;
+}
+/* line 442, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap div.td {
+  border: 1px solid black;
+  display: table-cell;
+}
+/* line 444, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap span {
+  outline: 1px solid green;
+  position: relative;
+  display: inline-block;
+  display: table-cell;
+  padding: .3rem;
+  color: #000;
+  width: 20%;
+}
+/* line 461, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap.debt_green div[class^="col-"], .row.budget_wrapper .layout.job_wrap.debt_green div[class*="col-"] {
+  outline: 1px solid green;
+}
+/* line 465, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap.debt_green div[class^="col-"] .green_tick, .row.budget_wrapper .layout.job_wrap.debt_green div[class*="col-"] .green_tick {
+  background-image: url("../img/green_tick.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+/* line 488, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap.debt_red div[class^="col-"], .row.budget_wrapper .layout.job_wrap.debt_red div[class*="col-"] {
+  outline: 1px solid red;
+}
+/* line 502, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap button {
+  background-color: #ccc;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 6px;
+  color: #000;
+  font-family: 'Oswald';
+  font-size: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: Gotham-Book;
+}
+/* line 516, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap input[type="text"] {
+  color: #000;
+  margin: 0 0 6px 0;
+}
+/* line 521, ../sass/partials/layout.scss */
+.row.budget_wrapper .layout.job_wrap #form_edit_item {
+  display: inline-block;
+  outline: 1px solid grey;
+  width: 100%;
+  padding: 1em;
+}
+
+/* line 545, ../sass/partials/layout.scss */
+body {
+  outline: 0px solid red;
+}

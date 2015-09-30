@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+/*
+ * @font-face
+ */
+@font-face {
+  font-family: "Nobel-Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Nobel-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Nobel-Bold.woff") format("woff"), url("../fonts/Nobel-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "TradeGothicLTStd-Light";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Nobel-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Nobel-Bold.woff") format("woff"), url("../fonts/Nobel-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: TradeGothicLTStd-Light;
+  src: url("../fonts/TradeGothicLTStd-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: TradeGothicLTStd-Bold;
+  src: url("../fonts/TradeGothicLTStd-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: Gotham-Book;
+  src: url("../fonts/Gotham-Book.otf") format("opentype");
+}
+@font-face {
+  font-family: Gotham-Bold;
+  src: url("../fonts/Gotham-Bold.otf") format("opentype");
+}
+/* line 29, ../../sass/partials/typography.scss */
+p {
+  font-size: .9em;
+  line-height: 1.5em;
+}
+
+/* line 34, ../../sass/partials/typography.scss */
+a {
+  color: #757575;
+}
+
+/* line 37, ../../sass/partials/typography.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 41, ../../sass/partials/typography.scss */
+h2 {
+  margin-top: 0px;
+  font-family: Gotham-Book;
+  font-size: 1.5em;
+  margin-bottom: 4px;
+}
