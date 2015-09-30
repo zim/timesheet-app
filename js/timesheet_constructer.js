@@ -203,17 +203,26 @@ var TimesheetMain = TimesheetMain || (function(domId, jobsList, show){
 
 	//selClientElement.addEventListener("change", createJobFilter('this'));
 
+	selDateElement.addEventListener('change', function(){ 
+	    // pass in `this` (the element), and someOtherVar
+	    //getSelection(this, someOtherVar);
+	    // var value = sel.options[sel.selectedIndex].value;
+	    // console.log(value);
+	    createJobFilter(this.value,"date");
+
+	},false);
+
 	selClientElement.addEventListener('change', function(){ 
 	    // pass in `this` (the element), and someOtherVar
 	    //getSelection(this, someOtherVar);
 	    // var value = sel.options[sel.selectedIndex].value;
 	    // console.log(value);
-	    createJobFilter(this.value);
+	    createJobFilter(this.value,"client");
 
 	},false);
 
 	// SHOW ONLY CLIENT JOB LIST FUNCTION
-	function createJobFilter(filterVal){
+	function createJobFilter(filterVal,switchVal){
 
 		console.log('filterVal = ' + filterVal);
 
@@ -222,9 +231,28 @@ var TimesheetMain = TimesheetMain || (function(domId, jobsList, show){
 
 		// console.log("= createJobListCustom(btnDomEl) CALLED: this.dataset.index = " + btnDomEl.dataset.index);
 
-		var testClient = filterVal;
+		//var testClient = filterVal;
 
-		console.log("testClient = " + testClient);
+		var testVal = filterVal;
+
+		 // switch (switchVal) {
+		 //    case "date":
+		 //        testVal = timesheetObjArray[btnDomEl.dataset.index].getJobDate();
+
+		 //        break; 
+		 //    case "client":
+		 //        testVal = timesheetObjArray[btnDomEl.dataset.index].getJobClient();
+
+		 //        break; 
+		 //    case "number":
+		 //    	testVal = timesheetObjArray[btnDomEl.dataset.index].getJobNumber();
+	        	
+		 //        break; 
+		 //    default: 
+		 //        text = "default switch case";
+		 //  }// end switch (show) {
+
+		console.log("testVal = " + testVal);
 
 		//console.log(domElement);
 
@@ -238,11 +266,27 @@ var TimesheetMain = TimesheetMain || (function(domId, jobsList, show){
 
 			console.log("timesheetObjArray[i].getJobClient() = " + timesheetObjArray[i].getJobClient())
 
-			var tmpClient = timesheetObjArray[i].getJobClient();
+			// var tmpClient = timesheetObjArray[i].getJobClient();
 
-			console.log("tmpClient = " + tmpClient);
+			// console.log("tmpClient = " + tmpClient);
 
-			if(tmpClient===testClient){
+			switch (switchVal) {
+			    case "date":
+			        var tmpVal = timesheetObjArray[i].getJobDate();
+
+			        break; 
+			    case "client":
+			        var tmpVal = timesheetObjArray[i].getJobClient();
+
+			        break; 
+			    case "number":
+		        	var tmpVal = timesheetObjArray[i].getJobNumber();
+			        break; 
+			    default: 
+			        text = "default switch case";
+			  }// end switch (show) {
+
+			if(tmpVal===testVal){
 
 			timesheetJob[i] = document.createElement('div');
 		    timesheetJob[i].id = "job_wrap" + i;
@@ -454,11 +498,11 @@ var TimesheetMain = TimesheetMain || (function(domId, jobsList, show){
 			  btnShowClient[i].setAttribute('data-index',i);
 				
 				if (btnShowClient[i].addEventListener) {
-		            btnShowClient[i].addEventListener("click", function(){ createJobListCustom(this); }, false);
-		            jobClientElement[i].addEventListener("click", function(){ createJobListCustom(this); }, false);
+		            btnShowClient[i].addEventListener("click", function(){ createJobListCustom(this,"client"); }, false);
+		            jobClientElement[i].addEventListener("click", function(){ createJobListCustom(this,"client"); }, false);
 		        } else {
-		            btnShowClient[i].attachEvent('onclick', function(){ createJobListCustom(this); });
-		            jobClientElement[i].attachEvent('onclick', function(){ createJobListCustom(this); });
+		            btnShowClient[i].attachEvent('onclick', function(){ createJobListCustom(this,"client"); });
+		            jobClientElement[i].attachEvent('onclick', function(){ createJobListCustom(this,"client"); });
 		        }
 
 				jobClientElement[i].appendChild(btnShowClient[i]);
@@ -589,6 +633,212 @@ var TimesheetMain = TimesheetMain || (function(domId, jobsList, show){
 		}// end for
 			
 	}// END function createDebitList(domElement,timesheetObjArray,show){
+
+	// SHOW ONLY CLIENT JOB LIST FUNCTION
+	function createJobListCustom(btnDomEl){
+
+		console.log("this.dataset.index = " + btnDomEl.dataset.index);
+
+		console.log("= createJobListCustom(btnDomEl) CALLED: this.dataset.index = " + btnDomEl.dataset.index);
+
+		var testVal;
+
+		 switch (switchVal) {
+		    case "date":
+		        testVal = timesheetObjArray[btnDomEl.dataset.index].getJobDate();
+
+		        break; 
+		    case "client":
+		        testVal = timesheetObjArray[btnDomEl.dataset.index].getJobClient();
+
+		        break; 
+		    case "number":
+		    	testVal = timesheetObjArray[btnDomEl.dataset.index].getJobNumber();
+	        	
+		        break; 
+		    default: 
+		        text = "default switch case";
+		  }// end switch (show) {
+
+
+		// var testClient = timesheetObjArray[btnDomEl.dataset.index].getJobClient();
+
+		//console.log("testClient = " + testClient);
+
+		//console.log(domElement);
+
+		// HERE WE CLEAR THE MAIN DOM ELEMENT BEFORE RE INITIALISING OUR DEBT LIST
+		domElement.innerHTML = "";
+		
+		viewTotal = 0;
+		
+		// HERE WE LOOP THROUGH ALL THE OBJECT ELEMENTS STORED IN OUR timesheetObjArray AND FILL OUR LAYOUT ARRAYS DECLARED ABOVE AND APPEND THEM TO THE PAGE; DEPENDING ON THE SHOW VARIABLE
+		for (var i in timesheetObjArray) {
+
+			console.log("timesheetObjArray[i].getJobClient() = " + timesheetObjArray[i].getJobClient())
+
+			switch (switchVal) {
+			    case "date":
+			        var tmpVal = timesheetObjArray[i].getJobDate();
+
+			        break; 
+			    case "client":
+			        var tmpVal = timesheetObjArray[i].getJobClient();
+
+			        break; 
+			    case "number":
+		        	var tmpVal = timesheetObjArray[i].getJobNumber();
+			        break; 
+			    default: 
+			        text = "default switch case";
+			  }// end switch (show) {
+
+			
+
+			console.log("tmpClient = " + tmpVal);
+
+			if(tmpVal===testVal){
+
+			timesheetJob[i] = document.createElement('div');
+		    timesheetJob[i].id = "job_wrap" + i;
+
+		    timesheetJob[i].setAttribute('class','layout job_wrap');
+
+		    domElement.appendChild(timesheetJob[i]);
+
+		    // JOB DATE ELEMENT
+			jobDateElement[i] = document.createElement('div');
+			jobDateElement[i].setAttribute('class','col-md-2 span-client');
+			jobDateElement[i].innerHTML = timesheetObjArray[i].getJobDate();
+			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+			timesheetJob[i].appendChild(jobDateElement[i]);
+
+
+			// JOB START TIME ELEMENT
+			jobSTElement[i] = document.createElement('span');
+			jobSTElement[i].setAttribute('class','span-start-time');
+			jobSTElement[i].innerHTML = timesheetObjArray[i].getJobStartTime();
+			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+			jobDateElement[i].appendChild(jobSTElement[i]);
+
+			// JOB FINISH TIME ELEMENT
+			jobFTElement[i] = document.createElement('span');
+			jobFTElement[i].setAttribute('class','span-finish-time');
+			jobFTElement[i].innerHTML = timesheetObjArray[i].getJobFinishTime();
+			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+			jobDateElement[i].appendChild(jobFTElement[i]);
+
+
+
+		    // JOB CLIENT ELEMENT
+			jobClientElement[i] = document.createElement('div');
+			jobClientElement[i].setAttribute('class','col-md-3 span-client');
+			jobClientElement[i].innerHTML = timesheetObjArray[i].getJobClient();
+			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+			timesheetJob[i].appendChild(jobClientElement[i]);
+
+			// JOB NUMBER ELEMENT
+			jobNumberElement[i] = document.createElement('div');
+			jobNumberElement[i].setAttribute('class','col-md-3 span-number');
+			jobNumberElement[i].innerHTML = timesheetObjArray[i].getJobNumber();
+			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+			timesheetJob[i].appendChild(jobNumberElement[i]);
+
+			// JOB REF ELEMENT
+			jobRefElement[i] = document.createElement('div');
+			jobRefElement[i].setAttribute('class','col-md-4-end span-ref');
+			jobRefElement[i].innerHTML = timesheetObjArray[i].getJobRef();
+			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+			timesheetJob[i].appendChild(jobRefElement[i]);
+
+
+			// ADD ICON WRAPPER
+			//
+			iconWrapElement[i] = document.createElement('div');
+			iconWrapElement[i].setAttribute('class','iconWrapElement');
+			// iconWrapElement[i].innerHTML = timesheetObjArray[i].getJobRef();
+			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+			jobRefElement[i].appendChild(iconWrapElement[i]);
+
+			//console.log("timesheetObjArray[i].getActive() = " + timesheetObjArray[i].getActive());
+
+			if(timesheetObjArray[i].getActive()){
+			  	
+			  	// CREATE BUTTON FOR PAY ALL
+			  	btnSetState[i] = document.createElement('button');
+				btnSetState[i].id = i + "_btnSetState";
+				//btnSetState[i].innerHTML = "[X " + i + "]";
+				btnSetState[i].setAttribute('data-index',i);
+				btnSetState[i].setAttribute('class','control-btn btn-active-on');
+				
+				if (btnSetState[i].addEventListener) {
+		            btnSetState[i].addEventListener("click", function(){ setState(this,show,false); }, false);
+		        } else {
+		            btnSetState[i].attachEvent('onclick', function(){ setState(this,show,false); });
+		        }
+				iconWrapElement[i].appendChild(btnSetState[i]);
+			  	
+			  }else{
+			  		// CREATE BUTTON FOR PAY ALL
+			  	btnSetState[i] = document.createElement('button');
+				btnSetState[i].id = i + "_btnSetState";
+				// btnSetState[i].innerHTML = "[X " + i + "]";
+				btnSetState[i].setAttribute('data-index',i);
+				btnSetState[i].setAttribute('class','control-btn btn-active-off');
+				
+				if (btnSetState[i].addEventListener) {
+		            btnSetState[i].addEventListener("click", function(){ setState(this,show,true); }, false);
+		        } else {
+		            btnSetState[i].attachEvent('onclick', function(){ setState(this,show,true); });
+		        }
+				iconWrapElement[i].appendChild(btnSetState[i]);
+
+			  }// end if(timesheetObjArray[i].getActive()){
+
+
+			  // CREATE BUTTON FOR EDIT ITEM
+			  	btnEditItem[i] = document.createElement('button');
+				btnEditItem[i].id = i + "_btnEditItem";
+				// btnDeleteItem[i].innerHTML = "[DELETE " + i + "]";
+				btnEditItem[i].setAttribute('data-index',i);
+				btnEditItem[i].setAttribute('data-toggle',"modal");
+				btnEditItem[i].setAttribute('data-target',"#modal" + i);
+				btnEditItem[i].setAttribute('class','control-btn btn-edit');
+				
+				if (btnEditItem[i].addEventListener) {
+		            //btnEditValue[i].addEventListener("click", function(){ editValue(this,"all"); }, false);
+		            btnEditItem[i].addEventListener("click", function(){ editItemForm(this,show); }, false);
+		        } else {
+		            btnEditItem[i].attachEvent('onclick', function(){ editItemForm(this,show); });
+		        }
+				iconWrapElement[i].appendChild(btnEditItem[i]);
+
+
+			// CREATE BUTTON FOR DELETE ITEM
+			  	btnDeleteItem[i] = document.createElement('button');
+				btnDeleteItem[i].id = i + "_btnDeleteItem";
+				// btnDeleteItem[i].innerHTML = "[DELETE " + i + "]";
+				btnDeleteItem[i].setAttribute('data-index',i);
+				btnDeleteItem[i].setAttribute('class','control-btn btn-delete');
+				
+				if (btnDeleteItem[i].addEventListener) {
+		            //btnEditValue[i].addEventListener("click", function(){ editValue(this,"all"); }, false);
+		            btnDeleteItem[i].addEventListener("click", function(){ deleteItem(this,show); }, false);
+		        } else {
+		            btnDeleteItem[i].attachEvent('onclick', function(){ deleteItem(this,show); });
+		        }
+				iconWrapElement[i].appendChild(btnDeleteItem[i]);
+
+
+			
+				
+			}
+
+			//timesheetObjArray[i].getJobClient();
+		  
+		}// end for
+			
+	}// END function createJobListCustom(showclient){
 
 	function renderJobListItem(obj,domElement,i,show){
 		console.log('no way');
@@ -729,6 +979,7 @@ function createEditItemForm (btnDomEl) {
 		my_tbFt.setAttribute('class','time');
 		tempForm.appendChild(my_tbFt);
 
+		
 		// my_tbSt.setAttributes({
 		//     'id':'textboxJobStartadd' + btnDomEl.dataset.index,
 		//     'class':'time',
@@ -754,6 +1005,22 @@ function createEditItemForm (btnDomEl) {
 	    }
 		
 		tempFormWrap.appendChild(tempForm);
+
+
+		// 
+		$('#modal' + btnDomEl.dataset.index).on('hidden.bs.modal', function (e) {
+		  // do something...
+		  console.log('e= ' + e);
+		  console.log(e);
+
+		  console.log('curEditItemParent = ' + curEditItemParent);
+		  console.log(curEditItemParent);
+
+		  curEditItemParent.removeChild(tempFormWrap);
+
+		  editing=false;
+
+		});
 		
 		editing=true;
 		// END CREATE/OPEN TEMP ITEM EDIT FORM
@@ -928,94 +1195,7 @@ function createJobListFilter(show){
 	
 
 
-	// SHOW ONLY CLIENT JOB LIST FUNCTION
-	function createJobListCustom(btnDomEl){
 
-		console.log("this.dataset.index = " + btnDomEl.dataset.index);
-
-		console.log("= createJobListCustom(btnDomEl) CALLED: this.dataset.index = " + btnDomEl.dataset.index);
-
-		var testClient = timesheetObjArray[btnDomEl.dataset.index].getJobClient();
-
-		//console.log("testClient = " + testClient);
-
-		//console.log(domElement);
-
-		// HERE WE CLEAR THE MAIN DOM ELEMENT BEFORE RE INITIALISING OUR DEBT LIST
-		domElement.innerHTML = "";
-		
-		viewTotal = 0;
-		
-		// HERE WE LOOP THROUGH ALL THE OBJECT ELEMENTS STORED IN OUR timesheetObjArray AND FILL OUR LAYOUT ARRAYS DECLARED ABOVE AND APPEND THEM TO THE PAGE; DEPENDING ON THE SHOW VARIABLE
-		for (var i in timesheetObjArray) {
-
-			console.log("timesheetObjArray[i].getJobClient() = " + timesheetObjArray[i].getJobClient())
-
-			var tmpClient = timesheetObjArray[i].getJobClient();
-
-			console.log("tmpClient = " + tmpClient);
-
-			if(tmpClient===testClient){
-
-			timesheetJob[i] = document.createElement('div');
-		    timesheetJob[i].id = "job_wrap" + i;
-
-		    timesheetJob[i].setAttribute('class','layout job_wrap');
-
-		    domElement.appendChild(timesheetJob[i]);
-
-		    // JOB DATE ELEMENT
-			jobDateElement[i] = document.createElement('div');
-			jobDateElement[i].setAttribute('class','col-md-2 span-client');
-			jobDateElement[i].innerHTML = timesheetObjArray[i].getJobDate();
-			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-			timesheetJob[i].appendChild(jobDateElement[i]);
-
-
-			// JOB START TIME ELEMENT
-			jobSTElement[i] = document.createElement('span');
-			jobSTElement[i].setAttribute('class','span-start-time');
-			jobSTElement[i].innerHTML = timesheetObjArray[i].getJobStartTime();
-			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-			jobDateElement[i].appendChild(jobSTElement[i]);
-
-			// JOB FINISH TIME ELEMENT
-			jobFTElement[i] = document.createElement('span');
-			jobFTElement[i].setAttribute('class','span-finish-time');
-			jobFTElement[i].innerHTML = timesheetObjArray[i].getJobFinishTime();
-			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-			jobDateElement[i].appendChild(jobFTElement[i]);
-
-
-
-		    // JOB CLIENT ELEMENT
-			jobClientElement[i] = document.createElement('div');
-			jobClientElement[i].setAttribute('class','col-md-3 span-client');
-			jobClientElement[i].innerHTML = timesheetObjArray[i].getJobClient();
-			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-			timesheetJob[i].appendChild(jobClientElement[i]);
-
-			// JOB NUMBER ELEMENT
-			jobNumberElement[i] = document.createElement('div');
-			jobNumberElement[i].setAttribute('class','col-md-3 span-number');
-			jobNumberElement[i].innerHTML = timesheetObjArray[i].getJobNumber();
-			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-			timesheetJob[i].appendChild(jobNumberElement[i]);
-
-			// JOB REF ELEMENT
-			jobRefElement[i] = document.createElement('div');
-			jobRefElement[i].setAttribute('class','col-md-4-end span-ref');
-			jobRefElement[i].innerHTML = timesheetObjArray[i].getJobRef();
-			//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-			timesheetJob[i].appendChild(jobRefElement[i]);
-				
-			}
-
-			//timesheetObjArray[i].getJobClient();
-		  
-		}// end for
-			
-	}// END function createJobListCustom(showclient){
 
 	function showClient(btnDomEl) {
 
