@@ -164,6 +164,19 @@
 
 		}// end function createPlayer
 
+		// CREATE REUSABLE CREATE SELECT LIST FUNCTION
+		function createSelList(arrayArg){
+			console.log("========== function createSelList(arrayArg) CALLED ===============" + arrayArg);
+
+			var unique = arrayArg.filter(function(itm, i){
+				//console.log("jobDatesArray.indexOf(itm)== i = " + i);
+			    return arrayArg.indexOf(itm)== i; 
+			    // returns true for only the first instance of itm
+			}); // END FILTER
+
+			selDateElement = document.createElement ("select");
+
+		}
 
 
 	// CREATE DATE JOB LIST FUNCTION
@@ -180,6 +193,11 @@
 
 			selDateElement = document.createElement ("select");
 
+			var optionDateTitle = document.createElement("option");
+			optionDateTitle.textContent = "Date Filter";
+		    //el.value = opt;
+		    selDateElement.appendChild(optionDateTitle);
+
 			for (var i in unique) {
 				// make unique references only
 				//console.log(unique[i]);
@@ -191,10 +209,6 @@
 			dateSelWrap.appendChild(selDateElement);
 
 		}// END function createClientSelList(){
-
-
-			
-
 
 
 		// CREATE CLIENT JOB LIST FUNCTION
@@ -210,6 +224,11 @@
 			//console.log(unique);
 
 			selClientElement = document.createElement ("select");
+
+			var optionClientTitle = document.createElement("option");
+			optionClientTitle.textContent = "Client Filter";
+		    //el.value = opt;
+		    selClientElement.appendChild(optionClientTitle);
 
 			for (var i in unique) {
 				// make unique references only
@@ -241,6 +260,11 @@
 			console.log(unique);
 
 			selNumberElement = document.createElement ("select");
+
+			var optionNumberTitle = document.createElement("option");
+			optionNumberTitle.textContent = "Number Filter";
+		    //el.value = opt;
+		    selNumberElement.appendChild(optionNumberTitle);
 
 			for (var i in unique) {
 				// make unique references only
@@ -552,7 +576,7 @@
 					iconWrapElement[i].appendChild(btnSetState[i]);
 				  	
 				  }else{
-				  		// CREATE BUTTON FOR PAY ALL
+				  		// CREATE BUTTON FOR state
 				  	btnSetState[i] = document.createElement('button');
 					btnSetState[i].id = i + "_btnSetState";
 					// btnSetState[i].innerHTML = "[X " + i + "]";
