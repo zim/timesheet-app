@@ -79,9 +79,61 @@ $(document).ready(function() {
 
 	 $('.time').timepicker();
 
+
+
+	function populate_week_range_options(){
+
+	    var start_week_date = new Date(2013, 7-1, 2); // no queries exist before this
+
+	    var todays_date = new Date();
+
+	    // array to hold week commencing dates
+	    var week_commencing_dates = new Array();
+
+	    var first_monday_date = new Date(2012, 7-1, 2); // no queries exist before this
+
+	    console.log('first_monday_date = ' + first_monday_date);
+
+	    week_commencing_dates.push(first_monday_date);
+
+	    while(start_week_date < todays_date){
+
+	    	console.log('while(start_week_date < todays_date){ =vvvvvvvvvvvvvvvvvvvvv');
+
+	        var next_date = start_week_date.setDate(start_week_date.getDate() + 1);
+
+	        console.log('var next_date = ' + next_date);
+
+	        var next_days_date = new Date(next_date);
+
+
+	        day_index = next_days_date.getDay();
+
+	        console.log('day_index = ' + day_index);
+
+
+	        if(day_index == 1){
+	        	console.log('if(day_index == 1){ == next_days_date = ' + next_days_date);
+	            week_commencing_dates.push(next_days_date);
+	        }
+
+	        // increment the date
+	        start_week_date = new Date(next_date);
+
+	    }// END while(start_week_date < todays_date){
+
+	    console.log('WEEK BEGINING ========================');
+	    console.log(week_commencing_dates);
+	    return week_commencing_dates;
+	}//
+
+populate_week_range_options();
+
 });// END $(document).ready(function() {
 
 var TimesheetMain = new TimesheetMain('timesheet_holder');
+
+
 
 
 
