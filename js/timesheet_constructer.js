@@ -23,6 +23,10 @@
 		var timesheetObjArray = [];
 		var timesheetObjStore = [];
 
+		// create array to hold all new Project TODO ITEMS and make them accesible to other methods
+		var timesheetTodoArray = [];
+		var timesheetTodoStore = [];
+
 		// HERE WE DECLARE ARRAYS TO HOLD OUR ITEM LAYOUT HTML ELEMENTS
 		var timesheetJob = [];
 		var jobClientElement = [];
@@ -89,6 +93,28 @@
 
 				// INITIALIZE MAIN APP
 				createApp("timesheet_holder", retrievedObjectPassed, "all");
+			}// if (localStorage.getItem("testObject") === null) {
+
+			if (localStorage.getItem("todoObject") === null) {
+				console.log('todoObject = null');
+				//  BEGIN AJAX CALL
+				
+				// end $.ajax({
+
+			} else {// IF LOCAL STORAGE SET THEN GET ALL DEBTOBJECTS FROM THERE
+				//console.log('LOCAL STORAGE SET THEN GET ALL DEBTOBJECTS FROM THERE');
+
+				// Retrieve the object from storage
+				localStorageTodo = localStorage.getItem('todoObject');
+
+				//console.log('else localStorageTodo: ', JSON.parse(localStorageTodo));
+
+				localStorageTodoPassed = JSON.parse(localStorageTodo);
+
+				//storage = true;
+
+				// INITIALIZE MAIN APP
+				//createApp("timesheet_holder", retrievedObjectPassed, "all");
 			}// if (localStorage.getItem("testObject") === null) {
 
 		} else {

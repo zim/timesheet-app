@@ -45,6 +45,35 @@ div[class^="col-"], div[class*="col-"]{
   }
 }
 
+.todo-items-main{
+  //outline:1px solid red;
+
+  >li{
+    //outline:1px solid yellow;
+
+    list-style-type: disc;
+    list-style-position: inside;
+    position: relative;
+    
+    margin: 0px 0px 12px 0px;
+    padding: 0px;
+
+    > ul{
+      //outline:1px solid green;
+      position:relative;
+      margin:7px 0px 0px 14px;
+      list-style-type: circle;
+      list-style-position: inside;
+
+      >li{
+        position:relative;
+        margin: 0px 0px 3px 0px;
+        padding: 0px;
+      }
+    }
+
+  }
+}
 
 .layout {
   // NEED THIS TO ENABLE SUSY GRID TO WORK
