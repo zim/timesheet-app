@@ -61,9 +61,9 @@ div[class^="col-"], div[class*="col-"]{
     > ul{
       //outline:1px solid green;
       position:relative;
-      margin:7px 0px 0px 14px;
+      margin:7px 0px 0px 30px;
       list-style-type: circle;
-      list-style-position: inside;
+      list-style-position: outside;
 
       >li{
         position:relative;

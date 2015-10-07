@@ -266,9 +266,9 @@ div[class^="col-"], div[class*="col-"] {
 /* line 61, ../sass/partials/layout.scss */
 .todo-items-main > li > ul {
   position: relative;
-  margin: 7px 0px 0px 14px;
+  margin: 7px 0px 0px 30px;
   list-style-type: circle;
-  list-style-position: inside;
+  list-style-position: outside;
 }
 /* line 68, ../sass/partials/layout.scss */
 .todo-items-main > li > ul > li {
