@@ -47,13 +47,12 @@
 		var clientSelWrap = document.getElementById("clientSelWrap");
 		var numberSelWrap = document.getElementById("numberSelWrap");
 
-
-
 		var jobNumberElement = [];
 		var jobRefElement = [];
 
 		var domElement;
 
+		domElement = document.getElementById(domId);
 
 		// HERE WE SET SOME VARIABLES AND BOOLEANS THAT WE NEED TO SEE FROM OTHER METHODS IN OUR MAIN TOPAY APP FUNCTION OBJECT
 		//var viewTotal = 0;
@@ -63,15 +62,13 @@
 		// CHECK TO SEE IF LOCAL IS AVAILABLE
 		if ( typeof (Storage) != "undefined") {
 
-			console.log('typeof (Storage) != "undefined"');
-			// Store
-			// localStorage.setItem("lastname", "Smith");
-			// Retrieve
-			// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+			//console.log('typeof (Storage) != "undefined"');
+			
 			// CHECK TO SEE IF LOCAL STORAGE HAS BEEN SET
 			if (localStorage.getItem("jobsObject") === null) {
 				console.log('jobsObject = null');
 				//  BEGIN AJAX CALL
+				// 	HERE IS WHERE WE CAN IMPORT .JSON FILE IF WE WANTED!!!
 				
 				// end $.ajax({
 
@@ -81,9 +78,23 @@
 				// Retrieve the object from storage
 				retrievedObject = localStorage.getItem('jobsObject');
 
-				//console.log('else retrievedObject: ', JSON.parse(retrievedObject));
+				console.log('LOCAL STORAGE: RETRIEVED OBJECT: RAW =');
+
+				console.log(retrievedObject);
+
+				console.log('LOCAL STORAGE: RETRIEVED OBJECT: AFTER JSON.parse HAS BEEN APPLIED =');
+
+				console.log(JSON.parse(retrievedObject));
 
 				retrievedObjectPassed = JSON.parse(retrievedObject);
+
+				console.log('retrievedObjectPassed: RAW =');
+
+				console.log(retrievedObjectPassed);
+
+				console.log('retrievedObjectPassed: AFTER JSON.stringify HAS BEEN APPLIED =');
+
+				console.log(JSON.stringify(retrievedObjectPassed));
 
 				storage = true;
 
@@ -98,26 +109,15 @@
 
 		// var addFormWrapper = document.getElementById("addFormWrapper");
 
-
-		// var addItemFormWrapper = document.createElement('div');
-		// addItemFormWrapper.id = "btn_add";
-		// addItemFormWrapper.setAttribute('class','col-md-4');
-		// addItemFormWrapper.innerHTML = "ADD";
-		// addFormWrapper.appendChild(addItemFormWrapper);
-
-
-
 		
 		// CREATE APP FUNCTION
 		function createApp(domId, jobsList, show){
 
-			// console.log("========== createApp CALLED ===============");
+			 console.log("========== createApp CALLED ===============");
 
-			// console.log(domId);
-			// console.log(jobsList);
-			// console.log(show);
-
-
+			console.log(domId);
+			console.log(jobsList);
+			console.log(show);
 
 			// HERE WE FILL OUR budgetDebtObjArray WITH OUR jobsList PASSED FROM LOCAL STORAGE
 			for (var i in jobsList) {
@@ -140,7 +140,7 @@
 			}// END for (var i in jobsList) {
 			
 			// CREATE topay DOM ELEMENT
-			domElement = document.getElementById(domId);
+			// domElement = document.getElementById(domId);
 			domElement.setAttribute('class','row timesheet_wrapper');
 			
 			// DEAL WITH JOBLIST ARRAY
@@ -157,6 +157,25 @@
 				selectsExist = true;
 			}
 			
+
+
+			selDateElement.addEventListener('change', function(){ 
+			    // pass in `this` (the element), and someOtherVar
+			    //getSelection(this, someOtherVar);
+			    // var value = sel.options[sel.selectedIndex].value;
+			    // console.log(value);
+			    createJobFilter(this.value,"date");
+
+			},false);
+
+			selClientElement.addEventListener('change', function(){ 
+			    // pass in `this` (the element), and someOtherVar
+			    //getSelection(this, someOtherVar);
+			    // var value = sel.options[sel.selectedIndex].value;
+			    // console.log(value);
+			    createJobFilter(this.value,"client");
+
+			},false);
 
 
 			// HERE WE CREATE AND RENDER OUR PAGE BY CALLING OUR createDebitList(domElement,jobsList,show) FUNCTION
@@ -280,23 +299,24 @@
 
 		//selClientElement.addEventListener("change", createJobFilter('this'));
 
-		selDateElement.addEventListener('change', function(){ 
-		    // pass in `this` (the element), and someOtherVar
-		    //getSelection(this, someOtherVar);
-		    // var value = sel.options[sel.selectedIndex].value;
-		    // console.log(value);
-		    createJobFilter(this.value,"date");
 
-		},false);
+		// selDateElement.addEventListener('change', function(){ 
+		//     // pass in `this` (the element), and someOtherVar
+		//     //getSelection(this, someOtherVar);
+		//     // var value = sel.options[sel.selectedIndex].value;
+		//     // console.log(value);
+		//     createJobFilter(this.value,"date");
 
-		selClientElement.addEventListener('change', function(){ 
-		    // pass in `this` (the element), and someOtherVar
-		    //getSelection(this, someOtherVar);
-		    // var value = sel.options[sel.selectedIndex].value;
-		    // console.log(value);
-		    createJobFilter(this.value,"client");
+		// },false);
 
-		},false);
+		// selClientElement.addEventListener('change', function(){ 
+		//     // pass in `this` (the element), and someOtherVar
+		//     //getSelection(this, someOtherVar);
+		//     // var value = sel.options[sel.selectedIndex].value;
+		//     // console.log(value);
+		//     createJobFilter(this.value,"client");
+
+		// },false);
 
 		// SHOW ONLY CLIENT JOB LIST FUNCTION
 		function createJobFilter(filterVal,switchVal){
@@ -1269,7 +1289,7 @@
 
 			for (var i in timesheetObjArray) {
 
-				console.log("timesheetObjArray[i].name = " + timesheetObjArray[i].getJobClient());
+				console.log("timesheetObjArray[i].getJobClient = " + timesheetObjArray[i].getJobClient());
 
 			};
 
@@ -1283,11 +1303,14 @@
 		      active: true
 		    });
 
-			//console.log(JSON.parse(timesheetObjArray));
+			console.log("JSON.stringify(timesheetObjArray) =");
+			console.log(timesheetObjStore);
 
-			console.log(JSON.stringify(timesheetObjArray));
+ 			console.log(JSON.stringify(timesheetObjArray));
+ 			//console.log(JSON.parse(timesheetObjArray));
 
-			console.log(JSON.stringify(timesheetObjStore));
+ 		// 	console.log("JSON.stringify(timesheetObjStore) =");
+			// console.log(JSON.stringify(timesheetObjStore));
 
 			// for (i = 0; i < timesheetObjArray.length; i++) { 
 			//     console.log('storage name ================ ' + timesheetObjArray[i].getJobClient());
