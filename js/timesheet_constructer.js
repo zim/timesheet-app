@@ -47,12 +47,13 @@
 		var clientSelWrap = document.getElementById("clientSelWrap");
 		var numberSelWrap = document.getElementById("numberSelWrap");
 
+
+
 		var jobNumberElement = [];
 		var jobRefElement = [];
 
 		var domElement;
 
-		domElement = document.getElementById(domId);
 
 		// HERE WE SET SOME VARIABLES AND BOOLEANS THAT WE NEED TO SEE FROM OTHER METHODS IN OUR MAIN TOPAY APP FUNCTION OBJECT
 		//var viewTotal = 0;
@@ -62,13 +63,15 @@
 		// CHECK TO SEE IF LOCAL IS AVAILABLE
 		if ( typeof (Storage) != "undefined") {
 
-			//console.log('typeof (Storage) != "undefined"');
-			
+			console.log('typeof (Storage) != "undefined"');
+			// Store
+			// localStorage.setItem("lastname", "Smith");
+			// Retrieve
+			// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 			// CHECK TO SEE IF LOCAL STORAGE HAS BEEN SET
 			if (localStorage.getItem("jobsObject") === null) {
 				console.log('jobsObject = null');
 				//  BEGIN AJAX CALL
-				// 	HERE IS WHERE WE CAN IMPORT .JSON FILE IF WE WANTED!!!
 				
 				// end $.ajax({
 
@@ -78,23 +81,9 @@
 				// Retrieve the object from storage
 				retrievedObject = localStorage.getItem('jobsObject');
 
-				console.log('LOCAL STORAGE: RETRIEVED OBJECT: RAW =');
-
-				console.log(retrievedObject);
-
-				console.log('LOCAL STORAGE: RETRIEVED OBJECT: AFTER JSON.parse HAS BEEN APPLIED =');
-
-				console.log(JSON.parse(retrievedObject));
+				//console.log('else retrievedObject: ', JSON.parse(retrievedObject));
 
 				retrievedObjectPassed = JSON.parse(retrievedObject);
-
-				console.log('retrievedObjectPassed: RAW =');
-
-				console.log(retrievedObjectPassed);
-
-				console.log('retrievedObjectPassed: AFTER JSON.stringify HAS BEEN APPLIED =');
-
-				console.log(JSON.stringify(retrievedObjectPassed));
 
 				storage = true;
 
@@ -109,17 +98,28 @@
 
 		// var addFormWrapper = document.getElementById("addFormWrapper");
 
+
+		// var addItemFormWrapper = document.createElement('div');
+		// addItemFormWrapper.id = "btn_add";
+		// addItemFormWrapper.setAttribute('class','col-md-4');
+		// addItemFormWrapper.innerHTML = "ADD";
+		// addFormWrapper.appendChild(addItemFormWrapper);
+
+
+
 		
 		// CREATE APP FUNCTION
 		function createApp(domId, jobsList, show){
 
-			 console.log("========== createApp CALLED ===============");
+			console.log("========== createApp CALLED ===============");
 
-			console.log(domId);
-			console.log(jobsList);
-			console.log(show);
+			// console.log(domId);
+			// console.log(jobsList);
+			// console.log(show);
 
-			// HERE WE FILL OUR budgetDebtObjArray WITH OUR jobsList PASSED FROM LOCAL STORAGE
+
+
+			// HERE WE FILL OUR timesheetObjArray WITH OUR jobsList PASSED FROM LOCAL STORAGE
 			for (var i in jobsList) {
 
 				//console.log("jobsList[i].client = " + jobsList[i].client);
@@ -140,7 +140,7 @@
 			}// END for (var i in jobsList) {
 			
 			// CREATE topay DOM ELEMENT
-			// domElement = document.getElementById(domId);
+			domElement = document.getElementById(domId);
 			domElement.setAttribute('class','row timesheet_wrapper');
 			
 			// DEAL WITH JOBLIST ARRAY
@@ -157,25 +157,6 @@
 				selectsExist = true;
 			}
 			
-
-
-			selDateElement.addEventListener('change', function(){ 
-			    // pass in `this` (the element), and someOtherVar
-			    //getSelection(this, someOtherVar);
-			    // var value = sel.options[sel.selectedIndex].value;
-			    // console.log(value);
-			    createJobFilter(this.value,"date");
-
-			},false);
-
-			selClientElement.addEventListener('change', function(){ 
-			    // pass in `this` (the element), and someOtherVar
-			    //getSelection(this, someOtherVar);
-			    // var value = sel.options[sel.selectedIndex].value;
-			    // console.log(value);
-			    createJobFilter(this.value,"client");
-
-			},false);
 
 
 			// HERE WE CREATE AND RENDER OUR PAGE BY CALLING OUR createDebitList(domElement,jobsList,show) FUNCTION
@@ -299,24 +280,23 @@
 
 		//selClientElement.addEventListener("change", createJobFilter('this'));
 
+		selDateElement.addEventListener('change', function(){ 
+		    // pass in `this` (the element), and someOtherVar
+		    //getSelection(this, someOtherVar);
+		    // var value = sel.options[sel.selectedIndex].value;
+		    // console.log(value);
+		    createJobFilter(this.value,"date");
 
-		// selDateElement.addEventListener('change', function(){ 
-		//     // pass in `this` (the element), and someOtherVar
-		//     //getSelection(this, someOtherVar);
-		//     // var value = sel.options[sel.selectedIndex].value;
-		//     // console.log(value);
-		//     createJobFilter(this.value,"date");
+		},false);
 
-		// },false);
+		selClientElement.addEventListener('change', function(){ 
+		    // pass in `this` (the element), and someOtherVar
+		    //getSelection(this, someOtherVar);
+		    // var value = sel.options[sel.selectedIndex].value;
+		    // console.log(value);
+		    createJobFilter(this.value,"client");
 
-		// selClientElement.addEventListener('change', function(){ 
-		//     // pass in `this` (the element), and someOtherVar
-		//     //getSelection(this, someOtherVar);
-		//     // var value = sel.options[sel.selectedIndex].value;
-		//     // console.log(value);
-		//     createJobFilter(this.value,"client");
-
-		// },false);
+		},false);
 
 		// SHOW ONLY CLIENT JOB LIST FUNCTION
 		function createJobFilter(filterVal,switchVal){
@@ -385,57 +365,145 @@
 
 				if(tmpVal===testVal){
 
-				timesheetJob[i] = document.createElement('div');
-			    timesheetJob[i].id = "job_wrap" + i;
+					timesheetJob[i] = document.createElement('div');
+				    timesheetJob[i].id = "job_wrap" + i;
 
-			    timesheetJob[i].setAttribute('class','layout job_wrap');
+				    timesheetJob[i].setAttribute('class','layout job_wrap');
 
-			    domElement.appendChild(timesheetJob[i]);
+				    domElement.appendChild(timesheetJob[i]);
 
-			    // JOB DATE ELEMENT
-				jobDateElement[i] = document.createElement('div');
-				jobDateElement[i].setAttribute('class','col-md-2 span-client');
-				jobDateElement[i].innerHTML = timesheetObjArray[i].getJobDate();
+				    // JOB DATE ELEMENT
+					jobDateElement[i] = document.createElement('div');
+					jobDateElement[i].setAttribute('class','col-md-2 span-client');
+					jobDateElement[i].innerHTML = timesheetObjArray[i].getJobDate();
+					//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+					timesheetJob[i].appendChild(jobDateElement[i]);
+
+
+					// JOB START TIME ELEMENT
+					jobSTElement[i] = document.createElement('span');
+					jobSTElement[i].setAttribute('class','span-start-time');
+					jobSTElement[i].innerHTML = timesheetObjArray[i].getJobStartTime();
+					//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+					jobDateElement[i].appendChild(jobSTElement[i]);
+
+					// JOB FINISH TIME ELEMENT
+					jobFTElement[i] = document.createElement('span');
+					jobFTElement[i].setAttribute('class','span-finish-time');
+					jobFTElement[i].innerHTML = timesheetObjArray[i].getJobFinishTime();
+					//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+					jobDateElement[i].appendChild(jobFTElement[i]);
+
+					// JOB DURATION ELEMENT
+					jobDurationElement[i] = document.createElement('span');
+					jobDurationElement[i].setAttribute('class','span-duration');
+					//timesheetObjArray[i].setJobDurationTime(timesheetObjArray[i].getJobStartTime(),timesheetObjArray[i].getJobFinishTime());
+					jobDurationElement[i].innerHTML = "<span>Duration:</span> " + timesheetObjArray[i].getJobDurationTime();
+					//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+					jobDateElement[i].appendChild(jobDurationElement[i]);
+
+
+
+				    // JOB CLIENT ELEMENT
+					jobClientElement[i] = document.createElement('div');
+					jobClientElement[i].setAttribute('class','col-md-3 span-client');
+					jobClientElement[i].innerHTML = timesheetObjArray[i].getJobClient();
+					//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+					timesheetJob[i].appendChild(jobClientElement[i]);
+
+					// JOB NUMBER ELEMENT
+					jobNumberElement[i] = document.createElement('div');
+					jobNumberElement[i].setAttribute('class','col-md-3 span-number');
+					jobNumberElement[i].innerHTML = timesheetObjArray[i].getJobNumber();
+					//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+					timesheetJob[i].appendChild(jobNumberElement[i]);
+
+					// JOB REF ELEMENT
+					jobRefElement[i] = document.createElement('div');
+					jobRefElement[i].setAttribute('class','col-md-4-end span-ref');
+					jobRefElement[i].innerHTML = timesheetObjArray[i].getJobRef();
+					//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+					timesheetJob[i].appendChild(jobRefElement[i]);
+
+
+					// ADD ICON WRAPPER
+				//
+				iconWrapElement[i] = document.createElement('div');
+				iconWrapElement[i].setAttribute('class','iconWrapElement');
+				// iconWrapElement[i].innerHTML = timesheetObjArray[i].getJobRef();
 				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-				timesheetJob[i].appendChild(jobDateElement[i]);
+				jobRefElement[i].appendChild(iconWrapElement[i]);
+
+				//console.log("timesheetObjArray[i].getActive() = " + timesheetObjArray[i].getActive());
+
+				if(timesheetObjArray[i].getActive()){
+				  	
+				  	// CREATE BUTTON FOR PAY ALL
+				  	btnSetState[i] = document.createElement('button');
+					btnSetState[i].id = i + "_btnSetState";
+					//btnSetState[i].innerHTML = "[X " + i + "]";
+					btnSetState[i].setAttribute('data-index',i);
+					btnSetState[i].setAttribute('class','control-btn btn-active-on');
+					
+					if (btnSetState[i].addEventListener) {
+			            btnSetState[i].addEventListener("click", function(){ setState(this,show,false); }, false);
+			        } else {
+			            btnSetState[i].attachEvent('onclick', function(){ setState(this,show,false); });
+			        }
+					iconWrapElement[i].appendChild(btnSetState[i]);
+				  	
+				  }else{
+				  		// CREATE BUTTON FOR state
+				  	btnSetState[i] = document.createElement('button');
+					btnSetState[i].id = i + "_btnSetState";
+					// btnSetState[i].innerHTML = "[X " + i + "]";
+					btnSetState[i].setAttribute('data-index',i);
+					btnSetState[i].setAttribute('class','control-btn btn-active-off');
+					
+					if (btnSetState[i].addEventListener) {
+			            btnSetState[i].addEventListener("click", function(){ setState(this,show,true); }, false);
+			        } else {
+			            btnSetState[i].attachEvent('onclick', function(){ setState(this,show,true); });
+			        }
+					iconWrapElement[i].appendChild(btnSetState[i]);
+
+				  }// end if(timesheetObjArray[i].getActive()){
 
 
-				// JOB START TIME ELEMENT
-				jobSTElement[i] = document.createElement('span');
-				jobSTElement[i].setAttribute('class','span-start-time');
-				jobSTElement[i].innerHTML = timesheetObjArray[i].getJobStartTime();
-				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-				jobDateElement[i].appendChild(jobSTElement[i]);
+				  // CREATE BUTTON FOR EDIT ITEM
+				  	btnEditItem[i] = document.createElement('button');
+					btnEditItem[i].id = i + "_btnEditItem";
+					// btnDeleteItem[i].innerHTML = "[DELETE " + i + "]";
+					btnEditItem[i].setAttribute('data-index',i);
+					btnEditItem[i].setAttribute('data-toggle',"modal");
+					btnEditItem[i].setAttribute('data-target',"#modal" + i);
+					btnEditItem[i].setAttribute('class','control-btn btn-edit');
+					
+					if (btnEditItem[i].addEventListener) {
+			            //btnEditValue[i].addEventListener("click", function(){ editValue(this,"all"); }, false);
+			            btnEditItem[i].addEventListener("click", function(){ editItemForm(this,show); }, false);
+			        } else {
+			            btnEditItem[i].attachEvent('onclick', function(){ editItemForm(this,show); });
+			        }
+					iconWrapElement[i].appendChild(btnEditItem[i]);
 
-				// JOB FINISH TIME ELEMENT
-				jobFTElement[i] = document.createElement('span');
-				jobFTElement[i].setAttribute('class','span-finish-time');
-				jobFTElement[i].innerHTML = timesheetObjArray[i].getJobFinishTime();
-				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-				jobDateElement[i].appendChild(jobFTElement[i]);
+
+				// CREATE BUTTON FOR DELETE ITEM
+				  	btnDeleteItem[i] = document.createElement('button');
+					btnDeleteItem[i].id = i + "_btnDeleteItem";
+					// btnDeleteItem[i].innerHTML = "[DELETE " + i + "]";
+					btnDeleteItem[i].setAttribute('data-index',i);
+					btnDeleteItem[i].setAttribute('class','control-btn btn-delete');
+					
+					if (btnDeleteItem[i].addEventListener) {
+			            //btnEditValue[i].addEventListener("click", function(){ editValue(this,"all"); }, false);
+			            btnDeleteItem[i].addEventListener("click", function(){ deleteItem(this,show); }, false);
+			        } else {
+			            btnDeleteItem[i].attachEvent('onclick', function(){ deleteItem(this,show); });
+			        }
+					iconWrapElement[i].appendChild(btnDeleteItem[i]);
 
 
-
-			    // JOB CLIENT ELEMENT
-				jobClientElement[i] = document.createElement('div');
-				jobClientElement[i].setAttribute('class','col-md-3 span-client');
-				jobClientElement[i].innerHTML = timesheetObjArray[i].getJobClient();
-				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-				timesheetJob[i].appendChild(jobClientElement[i]);
-
-				// JOB NUMBER ELEMENT
-				jobNumberElement[i] = document.createElement('div');
-				jobNumberElement[i].setAttribute('class','col-md-3 span-number');
-				jobNumberElement[i].innerHTML = timesheetObjArray[i].getJobNumber();
-				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-				timesheetJob[i].appendChild(jobNumberElement[i]);
-
-				// JOB REF ELEMENT
-				jobRefElement[i] = document.createElement('div');
-				jobRefElement[i].setAttribute('class','col-md-4-end span-ref');
-				jobRefElement[i].innerHTML = timesheetObjArray[i].getJobRef();
-				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
-				timesheetJob[i].appendChild(jobRefElement[i]);
 					
 				}
 
@@ -742,6 +810,14 @@
 				jobFTElement[i].innerHTML = timesheetObjArray[i].getJobFinishTime();
 				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
 				jobDateElement[i].appendChild(jobFTElement[i]);
+
+				// JOB DURATION ELEMENT
+				jobDurationElement[i] = document.createElement('span');
+				jobDurationElement[i].setAttribute('class','span-duration');
+				//timesheetObjArray[i].setJobDurationTime(timesheetObjArray[i].getJobStartTime(),timesheetObjArray[i].getJobFinishTime());
+				jobDurationElement[i].innerHTML = "<span>Duration:</span> " + timesheetObjArray[i].getJobDurationTime();
+				//debitNameElement[i].innerHTML = budgetDebtObjArray[i].name;
+				jobDateElement[i].appendChild(jobDurationElement[i]);
 
 
 
@@ -1147,9 +1223,6 @@
 			timesheetObjStore[btnDomEl.dataset.form].jobfinish = timesheetObjArray[btnDomEl.dataset.form].getJobFinishTime();
 
 			timesheetObjArray[btnDomEl.dataset.form].setJobDurationTime(tmpST, tmpFT);
-
-
-
 			
 			localStorage.setItem('jobsObject', JSON.stringify(timesheetObjStore));
 			// REGET LOCAL STORAGE
@@ -1230,8 +1303,6 @@
 	// CREATE FILTERED JOB LIST FUNCTION
 	function createJobListFilter(show){
 
-
-
 		console.log("--- function createJobListFilter(show) CALLED =" + retrievedObjectPassed);
 
 		console.log(show);
@@ -1289,7 +1360,7 @@
 
 			for (var i in timesheetObjArray) {
 
-				console.log("timesheetObjArray[i].getJobClient = " + timesheetObjArray[i].getJobClient());
+				console.log("timesheetObjArray[i].name = " + timesheetObjArray[i].getJobClient());
 
 			};
 
@@ -1303,14 +1374,11 @@
 		      active: true
 		    });
 
-			console.log("JSON.stringify(timesheetObjArray) =");
-			console.log(timesheetObjStore);
+			//console.log(JSON.parse(timesheetObjArray));
 
- 			console.log(JSON.stringify(timesheetObjArray));
- 			//console.log(JSON.parse(timesheetObjArray));
+			console.log(JSON.stringify(timesheetObjArray));
 
- 		// 	console.log("JSON.stringify(timesheetObjStore) =");
-			// console.log(JSON.stringify(timesheetObjStore));
+			console.log(JSON.stringify(timesheetObjStore));
 
 			// for (i = 0; i < timesheetObjArray.length; i++) { 
 			//     console.log('storage name ================ ' + timesheetObjArray[i].getJobClient());
