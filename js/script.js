@@ -79,6 +79,8 @@ $(document).ready(function() {
 
 	 $('.time').timepicker();
 
+	 $('input.timepicker').timepicker({});
+
 
 
 	function populate_week_range_options(){

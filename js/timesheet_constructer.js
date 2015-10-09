@@ -1046,8 +1046,6 @@
 			tempFormContent.setAttribute('class',"modal-content");
 			tempFormDoc.appendChild(tempFormContent);
 
-
-
 			// CREATE modal-header div and contents
 			tempFormHeader = document.createElement('div');
 			tempFormHeader.setAttribute('class',"modal-header");
@@ -1122,7 +1120,7 @@
 			//my_tbSt.value='Start Time';
 			my_tbSt.value=timesheetObjArray[btnDomEl.dataset.index].getJobStartTime();
 			my_tbSt.setAttribute('id',"textboxJobStartadd" + btnDomEl.dataset.index);
-			my_tbSt.setAttribute('class','time');
+			my_tbSt.setAttribute('class','timepicker');
 			tempForm.appendChild(my_tbSt);
 
 			var my_tbFt=document.createElement('INPUT');
@@ -1131,7 +1129,7 @@
 			//my_tbFt.value='Finish Time';
 			my_tbFt.value=timesheetObjArray[btnDomEl.dataset.index].getJobFinishTime();
 			my_tbFt.setAttribute('id',"textboxJobFinishadd" + btnDomEl.dataset.index);
-			my_tbFt.setAttribute('class','time');
+			my_tbFt.setAttribute('class','timepicker');
 			tempForm.appendChild(my_tbFt);
 
 			
@@ -1167,6 +1165,21 @@
 		        my_submit.attachEvent('onclick', function(){ editItemFormSubmit(this,show); });
 		    }
 
+		    // on modal launch
+		    $('#modal' + btnDomEl.dataset.index).on('shown.bs.modal', function (e) {
+				  // do something...
+				  console.log('e= ' + e);
+				  console.log(e);
+
+				  console.log('curEditItemParent = ' + curEditItemParent);
+				  console.log(curEditItemParent);
+
+				  $('input.timepicker').timepicker({});
+
+			  	  console.log('BOOOOOOOOOOOOOM SI!!!');
+
+				});
+
 
 			// 
 			$('#modal' + btnDomEl.dataset.index).on('hidden.bs.modal', function (e) {
@@ -1180,6 +1193,10 @@
 			  curEditItemParent.removeChild(tempFormWrap);
 
 			  editing=false;
+
+			  // $('input.timepicker').timepicker({});
+
+			  console.log('BOOOOOOOOOOOOOM NO');
 
 			});
 			

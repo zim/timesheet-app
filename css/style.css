@@ -231,6 +231,22 @@ div[data-role="editor-toolbar"] {
   cursor: pointer;
 }
 
+/* line 142, ../sass/partials/custom.scss */
+#myModal label {
+  outline: 0px solid red;
+  width: 80px;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: right;
+  width: 20%;
+}
+/* line 153, ../sass/partials/custom.scss */
+#myModal input {
+  color: #000000;
+}
+
 /* line 20, ../sass/partials/layout.scss */
 a.linksite-main {
   position: relative;
@@ -619,12 +635,18 @@ div[class^="col-"], div[class*="col-"] {
 .row.row-add-item .layout #form_add_item label {
   outline: 0px solid red;
   width: 80px;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: right;
+  width: 20%;
 }
-/* line 390, ../sass/partials/layout.scss */
+/* line 396, ../sass/partials/layout.scss */
 .row.row-add-item .layout #form_add_item input {
   color: #000000;
 }
-/* line 406, ../sass/partials/layout.scss */
+/* line 412, ../sass/partials/layout.scss */
 .row.row-nav .layout {
   *zoom: 1;
   max-width: 63em;
@@ -641,11 +663,11 @@ div[class^="col-"], div[class*="col-"] {
   display: table;
   clear: both;
 }
-/* line 411, ../sass/partials/layout.scss */
+/* line 417, ../sass/partials/layout.scss */
 .row.row-nav .layout div[class^="col-"], .row.row-nav .layout div[class*="col-"] {
   background-color: #222;
 }
-/* line 425, ../sass/partials/layout.scss */
+/* line 431, ../sass/partials/layout.scss */
 .row.row-headings .layout {
   *zoom: 1;
   max-width: 63em;
@@ -662,16 +684,16 @@ div[class^="col-"], div[class*="col-"] {
   display: table;
   clear: both;
 }
-/* line 430, ../sass/partials/layout.scss */
+/* line 436, ../sass/partials/layout.scss */
 .row.row-headings .layout div[class^="col-"], .row.row-headings .layout div[class*="col-"] {
   background-color: #222;
 }
-/* line 434, ../sass/partials/layout.scss */
+/* line 440, ../sass/partials/layout.scss */
 .row.row-headings .layout div[class^="col-"] p, .row.row-headings .layout div[class*="col-"] p {
   text-transform: uppercase;
   font-size: 2em;
 }
-/* line 450, ../sass/partials/layout.scss */
+/* line 456, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout {
   *zoom: 1;
   max-width: 63em;
@@ -688,16 +710,16 @@ div[class^="col-"], div[class*="col-"] {
   display: table;
   clear: both;
 }
-/* line 455, ../sass/partials/layout.scss */
+/* line 461, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout div[class^="col-"], .row.budget_wrapper .layout div[class*="col-"] {
   background-color: #222;
 }
-/* line 459, ../sass/partials/layout.scss */
+/* line 465, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout div[class^="col-"] p, .row.budget_wrapper .layout div[class*="col-"] p {
   text-transform: uppercase;
   font-size: 2em;
 }
-/* line 471, ../sass/partials/layout.scss */
+/* line 477, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap {
   outline: 1px solid red;
   position: relative;
@@ -705,22 +727,22 @@ div[class^="col-"], div[class*="col-"] {
   display: table;
   width: 100%;
 }
-/* line 478, ../sass/partials/layout.scss */
+/* line 484, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap div.table {
   border: 1px solid black;
   display: table;
 }
-/* line 479, ../sass/partials/layout.scss */
+/* line 485, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap div.tr {
   border: 1px solid black;
   display: table-row;
 }
-/* line 480, ../sass/partials/layout.scss */
+/* line 486, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap div.td {
   border: 1px solid black;
   display: table-cell;
 }
-/* line 482, ../sass/partials/layout.scss */
+/* line 488, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap span {
   outline: 1px solid green;
   position: relative;
@@ -730,11 +752,11 @@ div[class^="col-"], div[class*="col-"] {
   color: #000;
   width: 20%;
 }
-/* line 499, ../sass/partials/layout.scss */
+/* line 505, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap.debt_green div[class^="col-"], .row.budget_wrapper .layout.job_wrap.debt_green div[class*="col-"] {
   outline: 1px solid green;
 }
-/* line 503, ../sass/partials/layout.scss */
+/* line 509, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap.debt_green div[class^="col-"] .green_tick, .row.budget_wrapper .layout.job_wrap.debt_green div[class*="col-"] .green_tick {
   background-image: url("../img/green_tick.png");
   background-repeat: no-repeat;
@@ -745,11 +767,11 @@ div[class^="col-"], div[class*="col-"] {
   top: 0px;
   right: 0px;
 }
-/* line 526, ../sass/partials/layout.scss */
+/* line 532, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap.debt_red div[class^="col-"], .row.budget_wrapper .layout.job_wrap.debt_red div[class*="col-"] {
   outline: 1px solid red;
 }
-/* line 540, ../sass/partials/layout.scss */
+/* line 546, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap button {
   background-color: #ccc;
   -moz-border-radius: 5px;
@@ -763,12 +785,12 @@ div[class^="col-"], div[class*="col-"] {
   border: none;
   font-family: Gotham-Book;
 }
-/* line 554, ../sass/partials/layout.scss */
+/* line 560, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap input[type="text"] {
   color: #000;
   margin: 0 0 6px 0;
 }
-/* line 559, ../sass/partials/layout.scss */
+/* line 565, ../sass/partials/layout.scss */
 .row.budget_wrapper .layout.job_wrap #form_edit_item {
   display: inline-block;
   outline: 1px solid grey;
@@ -776,7 +798,7 @@ div[class^="col-"], div[class*="col-"] {
   padding: 1em;
 }
 
-/* line 583, ../sass/partials/layout.scss */
+/* line 589, ../sass/partials/layout.scss */
 body {
   outline: 0px solid red;
 }

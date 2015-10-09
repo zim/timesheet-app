@@ -103,3 +103,19 @@ div[data-role="editor-toolbar"] {
 .dropdown-menu a {
   cursor: pointer;
 }
+
+/* line 142, ../../sass/partials/custom.scss */
+#myModal label {
+  outline: 0px solid red;
+  width: 80px;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: right;
+  width: 20%;
+}
+/* line 153, ../../sass/partials/custom.scss */
+#myModal input {
+  color: #000000;
+}

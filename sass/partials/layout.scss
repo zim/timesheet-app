@@ -385,6 +385,12 @@ div[class^="col-"], div[class*="col-"]{
         label{
           outline:0px solid red;
           width:80px;
+          display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: right;
+    width: 20%;
         }
         
         input{
