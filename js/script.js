@@ -77,22 +77,23 @@ $(document).ready(function() {
 	});
 	// end button click
 
-	 $('.time').timepicker();
+	 //$('.time').timepicker();
 
-	 $('input.timepicker').timepicker({});
+	 $('input.timepickernew').timepicker({ 'scrollDefault': 'now' });
 
 
 
 	function populate_week_range_options(){
 
-	    var start_week_date = new Date(2013, 7-1, 2); // no queries exist before this
+	    var start_week_date = new Date(2015, 3-1, 2); // no queries exist before this
+	    console.log('start_week_date = ' + start_week_date);
 
 	    var todays_date = new Date();
 
 	    // array to hold week commencing dates
 	    var week_commencing_dates = new Array();
 
-	    var first_monday_date = new Date(2012, 7-1, 2); // no queries exist before this
+	    var first_monday_date = new Date(2015, 3-1, 2); // no queries exist before this
 
 	    console.log('first_monday_date = ' + first_monday_date);
 
@@ -100,18 +101,18 @@ $(document).ready(function() {
 
 	    while(start_week_date < todays_date){
 
-	    	console.log('while(start_week_date < todays_date){ =vvvvvvvvvvvvvvvvvvvvv');
+	    	//console.log('while(start_week_date < todays_date){ =vvvvvvvvvvvvvvvvvvvvv');
 
 	        var next_date = start_week_date.setDate(start_week_date.getDate() + 1);
 
-	        console.log('var next_date = ' + next_date);
+	        //console.log('var next_date = ' + next_date);
 
 	        var next_days_date = new Date(next_date);
 
 
 	        day_index = next_days_date.getDay();
 
-	        console.log('day_index = ' + day_index);
+	        //console.log('day_index = ' + day_index);
 
 
 	        if(day_index == 1){
@@ -124,8 +125,8 @@ $(document).ready(function() {
 
 	    }// END while(start_week_date < todays_date){
 
-	    console.log('WEEK BEGINING ========================');
-	    console.log(week_commencing_dates);
+	    // console.log('WEEK BEGINING ========================');
+	    // console.log(week_commencing_dates);
 	    return week_commencing_dates;
 	}//
 
