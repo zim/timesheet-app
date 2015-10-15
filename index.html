@@ -19,8 +19,15 @@
 
 
   <script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+   <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.css">
+    
+  
+    
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.js"></script>
+
   <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
 
   <script type="text/javascript" src="js/lib/jquery.timepicker.js"></script>
@@ -122,6 +129,9 @@
                 <li>USE populate_week_range_options() FUNCTION TO CREATE FILTER FOR WEEK BEGINING AND CREATE REPORTS ETC:
                   <ul>
                     <li>Use Bootstrap Datepicker to choose date begining? HILIGHT MONDAYS ON WIDGET? IS THIS POSSIBLE?</li>
+                    <li>Yes it is with, daysOfWeekDisabled option. bootstrap datepicker options... http://stackoverflow.com/questions/10234153/limit-bootstrap-datepicker-to-weekdays-only</li>
+                    <li>https://www.google.co.uk/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=bootstrap%20datetimepicker%20days%20of%20week%20disabled</li>
+                    <li>http://bootstrap-datepicker.readthedocs.org/en/latest/options.html</li>
                   </ul>
                 </li>
 
@@ -171,7 +181,11 @@
             <div class="modal-body">
 
               <label>Date</label>
-              <input type="date" class="" datepicker-popup is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" id="textboxDateadd" />
+
+              <!-- <input type="date" class="" datepicker-popup is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" id="textboxDateadd" /> -->
+
+<input id="textboxDateadd">
+
               <div class="form-row">
                 <label>Client</label>
                 <input type="text" name="add_item_client" id="textboxClientadd">
@@ -319,7 +333,7 @@
       <!-- scripts -->
       <!-- bootstrap scripts -->
       <script src="js/lib/bootstrap.min.js"></script>
-      <script src="js/lib/bootstrap/bootstrap-wysiwyg.js"></script>
+       <!-- <script src="js/lib/bootstrap/bootstrap-wysiwyg.js"></script> -->
       <script type="text/javascript" src="js/script.js"></script>
 
       <script src="http://localhost:35729/livereload.js"></script>

@@ -81,6 +81,10 @@ $(document).ready(function() {
 
 	 $('input.timepickernew').timepicker({ 'scrollDefault': 'now' });
 
+	 $('#textboxDateadd').datepicker({
+	    daysOfWeekDisabled: [0,6]
+	});
+
 
 
 	function populate_week_range_options(){
