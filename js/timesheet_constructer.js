@@ -327,7 +327,7 @@
 		// SHOW ONLY CLIENT JOB LIST FUNCTION
 		function createJobFilter(filterVal,switchVal){
 
-			console.log('filterVal = ' + filterVal);
+			console.log('filterVal =*=*=*=*=* ' + filterVal);
 
 
 			// console.log("this.dataset.index = " + btnDomEl.dataset.index);
@@ -559,7 +559,7 @@
 		// CREATE CREATE JOB LIST FUNCTION
 		function createJobList(show){
 
-			//console.log("========== function createJobList(show) CALLED ===============");
+			console.log("========== function createJobList(show) CALLED ===============");
 
 			//console.log(domElement);
 
@@ -567,6 +567,8 @@
 			domElement.innerHTML = "";
 			
 			viewTotal = 0;
+
+			console.log('timesheetObjArray.length = ' + timesheetObjArray.length);
 			
 			// HERE WE LOOP THROUGH ALL THE OBJECT ELEMENTS STORED IN OUR timesheetObjArray AND FILL OUR LAYOUT ARRAYS DECLARED ABOVE AND APPEND THEM TO THE PAGE; DEPENDING ON THE SHOW VARIABLE
 			for (var i in timesheetObjArray) {

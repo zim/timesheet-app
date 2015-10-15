@@ -1,10 +1,10 @@
 var JobObject = JobObject || function(jobDate, jobClient, jobRef, jobNumber, jobStartTime, jobFinishTime, jobActive, callback){
 	
-	console.log('JobObject called');
+	//console.log('JobObject called');
 
 	// console.log('jobClient + ' + jobClient);
-	console.log('jobStartTime + ' + jobStartTime);
-	console.log('jobFinishTime + ' + jobFinishTime);
+	// console.log('jobStartTime + ' + jobStartTime);
+	// console.log('jobFinishTime + ' + jobFinishTime);
 	
 	var jobDate = jobDate;
 	var client = jobClient;
@@ -143,13 +143,13 @@ var JobObject = JobObject || function(jobDate, jobClient, jobRef, jobNumber, job
 	};
 
 
-console.log('JobObject called 1');
+//console.log('JobObject called 1');
 
 
 	// DURATION FUNCTION
 	function _jobDurationCalc (start, finish) {
 
-        console.log("jobDuration = function(start, finish) { CALLED");
+        //console.log("jobDuration = function(start, finish) { CALLED");
 
         var time1 = start;
 
@@ -229,7 +229,7 @@ console.log('JobObject called 1');
         // console.log("hours1 = " + hours1);
         // console.log("hours2 = " + hours2);
 
-         console.log("hours = " + hours);
+         //console.log("hours = " + hours);
 
         duration = hours;
 
@@ -238,7 +238,7 @@ console.log('JobObject called 1');
     };// END jobDuration = function() {
 	
 	
-console.log('JobObject called 2');
+//console.log('JobObject called 2');
 
 	////////////// Public methods ///////////////////////////////////////////	
 	return{
