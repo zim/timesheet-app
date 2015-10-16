@@ -1,23 +1,23 @@
 /*
 Error: Undefined mixin 'container'.
-        on line 80 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss, in `container'
-        from line 80 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss
+        on line 74 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss, in `container'
+        from line 74 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss
 
-75:   }
-76: }
+69:   }
+70: }
+71: 
+72: .layout {
+73:   // NEED THIS TO ENABLE SUSY GRID TO WORK
+74:   @include container;
+75:   
+76:   background-color: #ccc;
 77: 
-78: .layout {
-79:   // NEED THIS TO ENABLE SUSY GRID TO WORK
-80:   @include container;
-81:   
-82:   background-color: #ccc;
-83:   
-84:   //max-width:54em;
-85:   //min-width:54em;
+78:   padding-top:20px;
+79:   
 
 Backtrace:
-/Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss:80:in `container'
-/Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss:80
+/Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss:74:in `container'
+/Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss:74
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:348:in `block in visit_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.16/lib/sass/stack.rb:98:in `block in with_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.16/lib/sass/stack.rb:115:in `with_frame'
@@ -73,4 +73,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'container'.\A         on line 80 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss, in `container'\A         from line 80 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss\A \A 75:   }\A 76: }\A 77: \A 78: .layout {\A 79:   // NEED THIS TO ENABLE SUSY GRID TO WORK\A 80:   @include container;\A 81:   \A 82:   background-color: #ccc;\A 83:   \A 84:   //max-width:54em;\A 85:   //min-width:54em;"; }
+  content: "Error: Undefined mixin 'container'.\A         on line 74 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss, in `container'\A         from line 74 of /Users/zsegal/Documents/work/JAVASCRIPT/SANDBOX/timesheet-app/sass/partials/layout.scss\A \A 69:   }\A 70: }\A 71: \A 72: .layout {\A 73:   // NEED THIS TO ENABLE SUSY GRID TO WORK\A 74:   @include container;\A 75:   \A 76:   background-color: #ccc;\A 77: \A 78:   padding-top:20px;\A 79:   "; }
