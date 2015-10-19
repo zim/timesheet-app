@@ -842,3 +842,8 @@ div[data-role="editor-toolbar"] {
   background: darkblue;
   color: white !important;
 }
+
+/* line 800, ../sass/partials/layout.scss */
+.bold {
+  font-weight: bold;
+}
